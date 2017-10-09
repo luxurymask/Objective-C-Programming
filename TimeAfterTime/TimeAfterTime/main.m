@@ -20,7 +20,14 @@ int main(int argc, const char * argv[]) {
         NSDate *later = [now dateByAddingTimeInterval:100000];
         NSLog(@"In 100000 seconds it will be %@", later);
         
-        printf("---------------------------------------\n");
+        NSCalendar *cal = [NSCalendar currentCalendar];
+        NSUInteger day0 = [cal ordinalityOfUnit:NSCalendarUnitDay inUnit:NSCalendarUnitMonth forDate:now];
+        NSLog(@"This is day %lu of the month", day0);
+        NSUInteger hour0 = [cal ordinalityOfUnit:NSCalendarUnitHour inUnit:NSCalendarUnitYear forDate:now];
+        NSLog(@"This is hour %lu of the year", hour0);
+
+        
+        printf("--------------------Test-------------------\n");
         
         int year, month, day, hour, minute, second;
         printf("please input your birth: \n");
